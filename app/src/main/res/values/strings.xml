@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Gen Signature Android</string>
+    <string name="hello">Hello World, MainAct!</string>
+<!--    <string name="app_name">GenSignature</string>-->
+    <string name="hint">Enter Package Name</string>
+    <string name="btn_str">Get Signature</string>
+    <string name="ok">确定</string>
+    <string name="cancel">取消</string>
+    <string name="alert_title">声明</string>
+    <string name="alert_msg">此工具会获取安装到本机的第三方应用的签名信息，点击“确定”继续操作，点击“取消”退出程序。</string>
+    <string name="notice">此工具仅用于获取安装到手机的第三方应用签名，供开发者填写到官网进行调试。\10第三方应用签名的正确性需由开发者自行保证。</string>
+
+</resources>
