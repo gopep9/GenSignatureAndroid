@@ -23,7 +23,7 @@
         android:id="@+id/btn_get_app_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Get Signature"/>
+        android:text="Get Application List" />
 
     <TextView
         android:id="@+id/tv_signature"
