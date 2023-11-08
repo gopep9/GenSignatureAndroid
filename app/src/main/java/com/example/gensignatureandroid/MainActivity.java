@@ -37,13 +37,15 @@ import java.security.MessageDigest;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = "MainActivity";
     private EditText etPackageName;
-    private TextView tvSignature;
+    private EditText tvSignature;
 
     private String md5 = "", sha1 = "", sha256 = "";
 
@@ -52,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         etPackageName = (EditText) findViewById(R.id.et_package_name);
-        tvSignature = (TextView) findViewById(R.id.tv_signature);
+        tvSignature = (EditText) findViewById(R.id.tv_signature);
         findViewById(R.id.btn_get_signature).setOnClickListener(this);
         findViewById(R.id.btn_get_app_list).setOnClickListener(this);
     }
@@ -148,8 +150,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void getAppList(){
         StringBuilder builder = new StringBuilder();
         List<ApplicationInfo> allApps = getPackageManager().getInstalledApplications(0);
+        List<String> packageNameList = new ArrayList<String>();
         for(ApplicationInfo ai : allApps){
-            builder.append("\n" + ai.packageName);
+            packageNameList.add(ai.packageName);
+        }
+        Collections.sort(packageNameList);
+        for(String packageName : packageNameList){
+            builder.append("\n" + packageName);
         }
         tvSignature.setText(builder.toString());
     }

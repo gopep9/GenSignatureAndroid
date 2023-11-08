@@ -11,7 +11,8 @@
         android:layout_height="wrap_content"
         android:hint="Enter Package Name"
         android:paddingLeft="5dp"
-        android:paddingRight="5dp"/>
+        android:paddingRight="5dp"
+        android:inputType="text"/>
 
     <Button
         android:id="@+id/btn_get_signature"
@@ -25,11 +26,18 @@
         android:layout_height="wrap_content"
         android:text="Get Application List" />
 
-    <TextView
-        android:id="@+id/tv_signature"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textIsSelectable="true"
-        android:padding="5dp"/>
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        >
+        <EditText
+            android:id="@+id/tv_signature"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    </ScrollView>
+
 
 </LinearLayout>
