@@ -138,6 +138,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
             builder.append("\nminSdkVersion :").append(pi.applicationInfo.minSdkVersion);
             builder.append("\nbaseRevisionCode :").append(pi.baseRevisionCode);
+            builder.append("\nversionName :").append(pi.versionName);
+            long appVersionCode = -1;
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.P){
+                appVersionCode = pi.getLongVersionCode();
+            }else{
+                appVersionCode = pi.versionCode;
+            }
+            builder.append("\nversionCode :").append(appVersionCode);
+            builder.deleteCharAt(0);
             bais.close();
             tvSignature.setText(builder.toString());
         } catch (Exception e) {
@@ -158,6 +167,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         for(String packageName : packageNameList){
             builder.append("\n" + packageName);
         }
+        builder.deleteCharAt(0);
         tvSignature.setText(builder.toString());
     }
 
